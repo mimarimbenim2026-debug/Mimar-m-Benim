@@ -1,0 +1,268 @@
+export type Uzmanlik =
+  | "Konut"
+  | "Ticari"
+  | "İç Mimarlık"
+  | "Peyzaj"
+  | "Restorasyon"
+  | "Kentsel Tasarım"
+  | "Endüstriyel"
+  | "Hastane & Sağlık";
+
+export interface Proje {
+  id: string;
+  baslik: string;
+  aciklama: string;
+  yil: number;
+  kategori: Uzmanlik;
+  gorsel: string;
+}
+
+export interface Mimar {
+  id: string;
+  slug: string;
+  ad: string;
+  unvan: string;
+  sehir: string;
+  deneyimYil: number;
+  uzmanliklar: Uzmanlik[];
+  bio: string;
+  gorsel: string;
+  kapakGorsel: string;
+  projeler: Proje[];
+  iletisim: {
+    email: string;
+    linkedin?: string;
+    website?: string;
+  };
+  puan: number;
+  yorumSayisi: number;
+  oneIkari: boolean;
+}
+
+export const MIMARLAR: Mimar[] = [
+  {
+    id: "1",
+    slug: "ayse-kaya",
+    ad: "Ayşe Kaya",
+    unvan: "Serbest Mimar",
+    sehir: "İstanbul",
+    deneyimYil: 12,
+    uzmanliklar: ["Konut", "İç Mimarlık"],
+    bio: "İstanbul Teknik Üniversitesi Mimarlık bölümü mezunuyum. 12 yıldır konut ve iç mimarlık projelerinde çalışmaktayım. Minimalist ve işlevsel tasarım anlayışıyla kullanıcı deneyimini ön planda tutuyorum.",
+    gorsel: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&h=400&fit=crop",
+    kapakGorsel: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1200&h=400&fit=crop",
+    projeler: [
+      {
+        id: "p1",
+        baslik: "Boğaz Manzaralı Rezidans",
+        aciklama: "Bebek'te 320 m² özel konut projesi. Doğal malzemeler ve geniş cam cepheler ile boğaz manzarası ön plana alındı.",
+        yil: 2023,
+        kategori: "Konut",
+        gorsel: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&h=500&fit=crop",
+      },
+      {
+        id: "p2",
+        baslik: "Nişantaşı Penthouse",
+        aciklama: "400 m² çatı katı dönüşümü. Açık plan mutfak ve yaşam alanı tasarımı.",
+        yil: 2022,
+        kategori: "İç Mimarlık",
+        gorsel: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=800&h=500&fit=crop",
+      },
+      {
+        id: "p3",
+        baslik: "Zekeriyaköy Villa",
+        aciklama: "500 m² müstakil villa. Eğimli arazi ile uyumlu kademeli yapı tasarımı.",
+        yil: 2021,
+        kategori: "Konut",
+        gorsel: "https://images.unsplash.com/photo-1613977257592-4871e5fcd7c4?w=800&h=500&fit=crop",
+      },
+    ],
+    iletisim: {
+      email: "ayse.kaya@example.com",
+      linkedin: "https://linkedin.com",
+      website: "https://example.com",
+    },
+    puan: 4.9,
+    yorumSayisi: 34,
+    oneIkari: true,
+  },
+  {
+    id: "2",
+    slug: "mehmet-arslan",
+    ad: "Mehmet Arslan",
+    unvan: "Mimar",
+    sehir: "Ankara",
+    deneyimYil: 8,
+    uzmanliklar: ["Ticari", "Endüstriyel"],
+    bio: "ODTÜ Mimarlık mezunu. Ticari ve endüstriyel yapılar konusunda uzmanlaştım. Sürdürülebilir yapı malzemeleri ve enerji verimliliği odaklı çözümler üretiyorum.",
+    gorsel: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop",
+    kapakGorsel: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=400&fit=crop",
+    projeler: [
+      {
+        id: "p4",
+        baslik: "Teknokent Ofis Kompleksi",
+        aciklama: "Ankara'da 5000 m² ofis kompleksi. LEED sertifikasyonuna uygun yeşil bina tasarımı.",
+        yil: 2023,
+        kategori: "Ticari",
+        gorsel: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&h=500&fit=crop",
+      },
+      {
+        id: "p5",
+        baslik: "OSB Üretim Tesisi",
+        aciklama: "12.000 m² üretim ve depolama tesisi. Doğal ışık optimizasyonu ile enerji tasarrufu sağlandı.",
+        yil: 2022,
+        kategori: "Endüstriyel",
+        gorsel: "https://images.unsplash.com/photo-1565008447742-97f6f38c985c?w=800&h=500&fit=crop",
+      },
+    ],
+    iletisim: {
+      email: "mehmet.arslan@example.com",
+      linkedin: "https://linkedin.com",
+    },
+    puan: 4.7,
+    yorumSayisi: 21,
+    oneIkari: true,
+  },
+  {
+    id: "3",
+    slug: "zeynep-demir",
+    ad: "Zeynep Demir",
+    unvan: "İç Mimar",
+    sehir: "İzmir",
+    deneyimYil: 6,
+    uzmanliklar: ["İç Mimarlık", "Konut"],
+    bio: "DEÜ Güzel Sanatlar mezunu. İç mekân tasarımında Akdeniz estetiği ile modern çizgileri harmanlıyorum. Küçük mekânları işlevsel ve estetik çözümlerle dönüştürüyorum.",
+    gorsel: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&h=400&fit=crop",
+    kapakGorsel: "https://images.unsplash.com/photo-1631679706909-1844bbd07221?w=1200&h=400&fit=crop",
+    projeler: [
+      {
+        id: "p6",
+        baslik: "Alsancak Cafe Tasarımı",
+        aciklama: "150 m² cafe iç mekan dönüşümü. Endüstriyel ve Akdeniz estetiğinin buluşması.",
+        yil: 2023,
+        kategori: "İç Mimarlık",
+        gorsel: "https://images.unsplash.com/photo-1525610553991-2bede1a236e2?w=800&h=500&fit=crop",
+      },
+      {
+        id: "p7",
+        baslik: "Karşıyaka Residence Dairesi",
+        aciklama: "90 m² daire yenileme. Açık plan mutfak ve yaşam alanı entegrasyonu.",
+        yil: 2023,
+        kategori: "Konut",
+        gorsel: "https://images.unsplash.com/photo-1631679706909-1844bbd07221?w=800&h=500&fit=crop",
+      },
+    ],
+    iletisim: {
+      email: "zeynep.demir@example.com",
+      website: "https://example.com",
+    },
+    puan: 4.8,
+    yorumSayisi: 17,
+    oneIkari: false,
+  },
+  {
+    id: "4",
+    slug: "can-yilmaz",
+    ad: "Can Yılmaz",
+    unvan: "Peyzaj Mimarı",
+    sehir: "Bursa",
+    deneyimYil: 10,
+    uzmanliklar: ["Peyzaj", "Kentsel Tasarım"],
+    bio: "Uludağ Üniversitesi Peyzaj Mimarlığı mezunu. Kamusal alanlar, özel bahçeler ve kentsel dönüşüm projelerinde 10 yıldır aktif olarak çalışıyorum.",
+    gorsel: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&fit=crop",
+    kapakGorsel: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200&h=400&fit=crop",
+    projeler: [
+      {
+        id: "p8",
+        baslik: "Nilüfer Kent Parkı",
+        aciklama: "3 hektarlık kamusal park tasarımı. Su öğeleri, yürüyüş yolları ve çocuk oyun alanları.",
+        yil: 2022,
+        kategori: "Peyzaj",
+        gorsel: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=500&fit=crop",
+      },
+    ],
+    iletisim: {
+      email: "can.yilmaz@example.com",
+    },
+    puan: 4.6,
+    yorumSayisi: 12,
+    oneIkari: false,
+  },
+  {
+    id: "5",
+    slug: "selin-ozturk",
+    ad: "Selin Öztürk",
+    unvan: "Restorasyon Uzmanı",
+    sehir: "İstanbul",
+    deneyimYil: 15,
+    uzmanliklar: ["Restorasyon", "Kentsel Tasarım"],
+    bio: "YTÜ Mimarlık mezunu, Restorasyon yüksek lisanslıyım. Tarihi yapıların restorasyon ve rölöve projelerinde 15 yıllık deneyimim var. Kültürel mirasın korunması için çalışıyorum.",
+    gorsel: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=400&fit=crop",
+    kapakGorsel: "https://images.unsplash.com/photo-1565117531952-eff65f3e11b5?w=1200&h=400&fit=crop",
+    projeler: [
+      {
+        id: "p9",
+        baslik: "Balat Tarihi Konak Restorasyonu",
+        aciklama: "19. yüzyıl ahşap konak restorasyon projesi. Özgün malzeme ve tekniklerle yenileme.",
+        yil: 2023,
+        kategori: "Restorasyon",
+        gorsel: "https://images.unsplash.com/photo-1565117531952-eff65f3e11b5?w=800&h=500&fit=crop",
+      },
+      {
+        id: "p10",
+        baslik: "Kapalıçarşı Dükkân Restorasyonu",
+        aciklama: "Tarihi çarşıda 8 dükkânın mimari restorasyon ve güçlendirme projesi.",
+        yil: 2021,
+        kategori: "Restorasyon",
+        gorsel: "https://images.unsplash.com/photo-1524055988636-436cfa46e59e?w=800&h=500&fit=crop",
+      },
+    ],
+    iletisim: {
+      email: "selin.ozturk@example.com",
+      linkedin: "https://linkedin.com",
+    },
+    puan: 5.0,
+    yorumSayisi: 28,
+    oneIkari: true,
+  },
+  {
+    id: "6",
+    slug: "emre-celik",
+    ad: "Emre Çelik",
+    unvan: "Mimar",
+    sehir: "Antalya",
+    deneyimYil: 4,
+    uzmanliklar: ["Konut", "Ticari"],
+    bio: "Akdeniz Üniversitesi Mimarlık mezunu. Antalya ve çevresinde konut ve ticari projeler geliştiriyorum. Akdeniz iklimine uygun biyoklimatik tasarım konusunda uzmanlaşıyorum.",
+    gorsel: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop",
+    kapakGorsel: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=1200&h=400&fit=crop",
+    projeler: [
+      {
+        id: "p11",
+        baslik: "Konyaaltı Yazlık Villası",
+        aciklama: "280 m² deniz manzaralı yazlık villa. Biyoklimatik tasarım ve doğal havalandırma sistemi.",
+        yil: 2023,
+        kategori: "Konut",
+        gorsel: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&h=500&fit=crop",
+      },
+    ],
+    iletisim: {
+      email: "emre.celik@example.com",
+    },
+    puan: 4.5,
+    yorumSayisi: 8,
+    oneIkari: false,
+  },
+];
+
+export const SEHIRLER = ["Tümü", "İstanbul", "Ankara", "İzmir", "Bursa", "Antalya"];
+export const UZMANLIKLAR: Uzmanlik[] = [
+  "Konut",
+  "Ticari",
+  "İç Mimarlık",
+  "Peyzaj",
+  "Restorasyon",
+  "Kentsel Tasarım",
+  "Endüstriyel",
+  "Hastane & Sağlık",
+];
